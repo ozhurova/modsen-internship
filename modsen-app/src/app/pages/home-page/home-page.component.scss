@@ -19,7 +19,7 @@
       .login-title {
         text-align: center;
         font-weight: 700;
-        color: $blue-grey-dark;
+        color: $blue-grey;
       }
 
       .login-field {
@@ -38,26 +38,14 @@
           border-radius: 10px;
           box-shadow: 2px 2px 4px 0 $shadow-color;
           transition-duration: 0.3s;
+          color: white;
+          background-color: $blue-grey;
 
           &:hover {
             box-shadow: 4px 4px 4px 0 $shadow-color;
             transform: translateY(-1px);
             cursor: pointer;
-          }
-        }
-
-        .btn-ok {
-          background-color: $light;
-
-          &:hover {
-            background-color: $orange;
-          }
-        }
-
-        .btn-cancel {
-
-          &:hover {
-            background-color: $white;
+            background-color: $blue-grey-dark;
           }
         }
       }
