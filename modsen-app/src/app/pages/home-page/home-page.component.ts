@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
+import { AuthUser } from '../../interfaces/auth-interface'
 
 @Component({
   selector: 'app-home-page',
@@ -10,11 +11,11 @@ export class HomePageComponent implements OnInit {
   constructor() { }
   ngOnInit(): void {
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
+  public email = new FormControl('', [Validators.required, Validators.email]);
+  public password = new FormControl('', [Validators.required]);
 
   submit(){
-      const user: any = {
+      const user: AuthUser = {
         username: this.email.value,
         password: this.password.value
       };
