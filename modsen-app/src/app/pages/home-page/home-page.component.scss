@@ -1,0 +1,64 @@
+@import 'src/styles/colors';
+
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .container-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .login-title {
+        text-align: center;
+        font-weight: 700;
+        color: $blue-grey-dark;
+      }
+
+      .login-field {
+        width: 250px;
+      }
+
+      .btn-container {
+        display: flex;
+        justify-content: space-around;
+
+        .btn {
+          width: 100px;
+          height: 30px;
+          border: 1px solid $border-color;
+          border-radius: 10px;
+          box-shadow: 2px 2px 4px 0 $shadow-color;
+          transition-duration: 0.3s;
+
+          &:hover {
+            box-shadow: 4px 4px 4px 0 $shadow-color;
+            transform: translateY(-1px);
+            cursor: pointer;
+          }
+        }
+
+        .btn-ok {
+          background-color: $light;
+
+          &:hover {
+            background-color: $orange;
+          }
+        }
+
+        .btn-cancel {
+
+          &:hover {
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+}

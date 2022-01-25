@@ -1,0 +1,25 @@
+<div class="page-wrapper">
+  <div class="container-wrapper">
+  <div class="login-container">
+    <h1 class="login-title">Log in</h1>
+    <mat-form-field class="login-field" appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input name="email" type="email" matInput placeholder="pat@example.com" [formControl]="email" required>
+      <mat-error *ngIf="email.hasError('required')"> Email is required field</mat-error>
+      <mat-error *ngIf="email.hasError('email')">Email error</mat-error>
+    </mat-form-field>
+    <mat-form-field class="login-field" appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input name="password" type="password" matInput [formControl]="password" required>
+      <mat-error *ngIf="password.hasError('required')"> Password is required field</mat-error>
+    </mat-form-field>
+    <div class="btn-container">
+      <button class="btn btn-cancel">Cancel</button>
+      <button class="btn btn-ok" (click)="submit()">OK</button>
+    </div>
+  </div>
+  <div class="main-img">
+    <img src="/assets/img/main-img.png" alt="">
+  </div>
+  </div>
+</div>
