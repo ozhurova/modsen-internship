@@ -1,7 +1,6 @@
 <app-header></app-header>
-<span class="form-inline">
+<span>
   <select
-    class="form-control"
     #selectedLang
     (change)="switchLang(selectedLang.value)">
     <option *ngFor="let language of translate.getLangs()"

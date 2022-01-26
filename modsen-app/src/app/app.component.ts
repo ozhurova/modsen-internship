@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -6,15 +6,26 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'modsen-app';
+export class AppComponent implements OnInit {
+  public title = 'modsen-app';
+  public currentLang = localStorage.getItem('language')
   constructor(
     public translate: TranslateService
   ) {
     translate.addLangs(['en', 'ru']);
     translate.setDefaultLang('ru');
   }
-  switchLang(lang: string) {
+  ngOnInit(): void {
+    if(this.currentLang){
+      this.switchLang(this.currentLang)
+    }
+  }
+
+  switchLang(lang: string):void {
+    if(this.currentLang) {
+      localStorage.removeItem('language');
+    }
+    localStorage.setItem('language', `${lang}`)
     this.translate.use(lang);
   }
 }
