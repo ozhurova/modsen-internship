@@ -1,0 +1,39 @@
+@import 'src/styles/colors';
+@import 'src/styles/fonts';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  background-color: $blue-grey-dark;
+  .wrapper-logo{
+    display: flex;
+    .header-logo {
+      height: 25px;
+      margin: 5px;
+    }
+    .logo-text{
+      color: $white;
+      font-size: $button;
+      font-weight: 700;
+      line-height: 35px;
+    }
+  }
+
+  .header-btn {
+    width: 80px;
+    background-color: $blue-grey-dark;
+    border: 2px solid $blue-grey;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    color: $white;
+    font-size: $button;
+    font-weight: 700;
+    transition: background-color .2s ease;
+    &:hover {
+      cursor: pointer;
+      background-color: $blue-grey;
+    }
+  }
+}
+

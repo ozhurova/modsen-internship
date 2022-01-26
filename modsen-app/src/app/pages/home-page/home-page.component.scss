@@ -1,11 +1,13 @@
 @import 'src/styles/colors';
+@import 'src/styles/fonts';
 
 .page-wrapper {
-  height: 100vh;
+  height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 20px;
 
   .container-wrapper {
     display: flex;
@@ -40,6 +42,7 @@
           transition-duration: 0.3s;
           color: white;
           background-color: $blue-grey;
+          font-size: $button;
 
           &:hover {
             box-shadow: 4px 4px 4px 0 $shadow-color;
