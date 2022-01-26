@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
 
   .container-wrapper {
     display: flex;
@@ -52,6 +51,13 @@
           }
         }
       }
+    }
+
+    .main-img {
+      margin: 35px;
+      height: 500px;
+      width: 500px;
+      background: url("/../../../assets/img/main-img.png") center/ contain no-repeat;
     }
   }
 }

@@ -4,17 +4,21 @@
 .header {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   height: 35px;
   background-color: $blue-grey-dark;
-  .wrapper-logo{
+
+  .wrapper-logo {
     display: flex;
+
     .header-logo {
       height: 25px;
       margin: 5px;
     }
-    .logo-text{
+
+    .logo-text {
       color: $white;
-      font-size: $button;
+      font-size: $logo-text;
       font-weight: 700;
       line-height: 35px;
     }
@@ -30,6 +34,7 @@
     font-size: $button;
     font-weight: 700;
     transition: background-color .2s ease;
+
     &:hover {
       cursor: pointer;
       background-color: $blue-grey;
