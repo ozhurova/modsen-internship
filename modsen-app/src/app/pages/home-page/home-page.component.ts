@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
-import { AuthUser } from '../../interfaces/auth-interface'
+import {AuthUser} from '../../interfaces/auth-interface'
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home-page',
@@ -8,17 +9,21 @@ import { AuthUser } from '../../interfaces/auth-interface'
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  constructor() { }
+  constructor(private router: Router) {
+  }
+
   ngOnInit(): void {
   }
+
   public email = new FormControl('', [Validators.required, Validators.email]);
   public password = new FormControl('', [Validators.required]);
 
-  submit(){
-      const user: AuthUser = {
-        username: this.email.value,
-        password: this.password.value
-      };
+  submit() {
+    const user: AuthUser = {
+      username: this.email.value,
+      password: this.password.value
+    };
     console.log(user)
+    void this.router.navigate(['choose-tests'])
   }
 }

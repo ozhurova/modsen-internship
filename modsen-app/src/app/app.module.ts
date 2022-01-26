@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HomePageModule} from "./pages/home-page/home-page.module";
 import {HeaderModule} from "./components/header/header.module";
 import {FooterModule} from "./components/footer/footer.module";
+import {ChooseTestsPageModule} from "./pages/choose-tests-page/choose-tests-page.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FooterModule} from "./components/footer/footer.module";
     BrowserAnimationsModule,
     HomePageModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    ChooseTestsPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
