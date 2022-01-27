@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  public currentLang = localStorage.getItem('language')
+  public currentLang = localStorage.getItem('language');
 
   constructor(
     public translate: TranslateService
@@ -18,7 +18,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.currentLang) {
-      this.switchLang(this.currentLang)
+      this.switchLang(this.currentLang);
     }
   }
 
@@ -26,7 +26,7 @@ export class FooterComponent implements OnInit {
     if (this.currentLang) {
       localStorage.removeItem('language');
     }
-    localStorage.setItem('language', `${lang}`)
+    localStorage.setItem('language', `${lang}`);
     this.translate.use(lang);
   }
 }

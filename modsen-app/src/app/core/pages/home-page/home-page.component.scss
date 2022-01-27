@@ -39,14 +39,14 @@
           border-radius: 10px;
           box-shadow: 2px 2px 4px 0 $shadow-color;
           transition-duration: 0.3s;
-          color: white;
+          color: $white;
           background-color: $blue-grey;
-          font-size: $button;
+          font-size: $fontSizeButton;
+          cursor: pointer;
 
           &:hover {
             box-shadow: 4px 4px 4px 0 $shadow-color;
             transform: translateY(-1px);
-            cursor: pointer;
             background-color: $blue-grey-dark;
           }
         }
@@ -57,7 +57,7 @@
       margin: 35px;
       height: 500px;
       width: 500px;
-      background: url("/../../../assets/img/main-img.png") center/ contain no-repeat;
+      background: url("/../../../../assets/img/main-img.png") center/ contain no-repeat;
     }
   }
 }

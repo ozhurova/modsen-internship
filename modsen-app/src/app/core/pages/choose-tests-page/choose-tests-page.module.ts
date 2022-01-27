@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ChooseTestsPageComponent} from "./choose-tests-page.component";
-
+import { ChooseTestsPageComponent } from './choose-tests-page.component';
 
 
 @NgModule({
