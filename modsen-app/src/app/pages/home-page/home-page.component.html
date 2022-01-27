@@ -1,21 +1,21 @@
 <div class="page-wrapper">
   <div class="container-wrapper">
     <div class="login-container">
-      <h1 class="login-title">Log in</h1>
+      <h1 class="login-title">{{"HOME_PAGE.LOG_IN" | translate}}</h1>
       <mat-form-field class="login-field" appearance="fill">
-        <mat-label>Enter your email</mat-label>
+        <mat-label>{{"HOME_PAGE.ENTER_EMAIL" | translate}}</mat-label>
         <input name="email" type="email" matInput placeholder="pat@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.hasError('required')"> Email is required field</mat-error>
-        <mat-error *ngIf="email.hasError('email')">Email error</mat-error>
+        <mat-error *ngIf="email.hasError('required')">{{"HOME_PAGE.ERROR_REQ" | translate}}</mat-error>
+        <mat-error *ngIf="email.hasError('email')">{{"HOME_PAGE.EMAIL_ERROR" | translate}}</mat-error>
       </mat-form-field>
       <mat-form-field class="login-field" appearance="fill">
-        <mat-label>Enter your password</mat-label>
+        <mat-label>{{"HOME_PAGE.ENTER_PASSWORD" | translate}}</mat-label>
         <input name="password" type="password" matInput [formControl]="password" required>
-        <mat-error *ngIf="password.hasError('required')"> Password is required field</mat-error>
+        <mat-error *ngIf="password.hasError('required')">{{"HOME_PAGE.ERROR_REQ" | translate}}</mat-error>
       </mat-form-field>
       <div class="btn-container">
-        <button class="btn">Cancel</button>
-        <button class="btn" (click)="submit()">OK</button>
+        <button class="btn">{{"BUTTONS.CANCEL" | translate}}</button>
+        <button class="btn" (click)="submit()">{{"BUTTONS.OK" | translate}}</button>
       </div>
     </div>
     <div class="main-img">

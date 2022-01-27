@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomePageComponent } from './home-page.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from "@angular/forms";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HomePageComponent} from './home-page.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [HomePageComponent],
@@ -11,7 +12,8 @@ import {MatInputModule} from "@angular/material/input";
     CommonModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    TranslateModule
   ],
   exports: [HomePageComponent],
 })

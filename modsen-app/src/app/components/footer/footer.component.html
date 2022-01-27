@@ -1,3 +1,12 @@
 <div class="footer">
   <a class="footer-link" href="https://ozhurova.github.io/rsschool-cv/" target="_blank">© 2022 Volha Zhurava</a>
+  <select class="lang-select"
+          #selectedLang
+          (change)="switchLang(selectedLang.value)">
+    <option *ngFor="let language of translate.getLangs()"
+            [value]="language"
+            [selected]="language === translate.currentLang">
+      {{ language }}
+    </option>
+  </select>
 </div>

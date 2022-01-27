@@ -1,5 +1,16 @@
 {
   "HEADER": {
     "LOG_OUT": "Выйти"
+  },
+  "HOME_PAGE": {
+    "LOG_IN": "Войти",
+    "ENTER_EMAIL": "Введите эл.почту",
+    "ENTER_PASSWORD": "Введите пароль",
+    "ERROR_REQ": "Обязательное поле",
+    "EMAIL_ERROR": "Ошибка эл.почты"
+  },
+  "BUTTONS": {
+    "CANCEL": "Отмена",
+    "OK": "ОК"
   }
 }

@@ -1,5 +1,16 @@
 {
   "HEADER": {
     "LOG_OUT": "log out"
+  },
+  "HOME_PAGE": {
+    "LOG_IN": "log in",
+    "ENTER_EMAIL": "Enter your email",
+    "ENTER_PASSWORD": "Enter your password",
+    "ERROR_REQ": "The field is required",
+    "EMAIL_ERROR": "Email error"
+  },
+  "BUTTONS": {
+    "CANCEL": "Cancel",
+    "OK": "OK"
   }
 }
