@@ -1,0 +1,76 @@
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+$md-mcbluegrey: (
+        50 : #e7ecef,
+        100 : #c7d4da,
+        200 : #9db0bb,
+        300 : #7b98a5,
+        400 : #58798b,
+        500 : #3b6176,
+        600 : #35596e,
+        700 : #2d4f63,
+        800 : #264559,
+        900 : #184058,
+        A100 : #85caff,
+        A200 : #52b3ff,
+        A400 : #1f9dff,
+        A700 : #0692ff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #ffffff,
+        )
+);
+
+$md-mcorange: (
+        50 : #fdf0e4,
+        100 : #f9dbbd,
+        200 : #f5c391,
+        300 : #ffbd59,
+        400 : #ee9843,
+        500 : #eb8622,
+        600 : #e97e1e,
+        700 : #e57319,
+        800 : #e26914,
+        900 : #f5772d,
+        A100 : #ffffff,
+        A200 : #ffe2d4,
+        A400 : #ffbfa1,
+        A700 : #ffad88,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #000000,
+                600 : #000000,
+                700 : #000000,
+                800 : #000000,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+$my-custom-primary: mat-palette($md-mcbluegrey, 500);
+$my-custom-accent: mat-palette($md-mcorange, 500, A100, 900);
+
+$my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent);
+
+@include angular-material-theme($my-custom-theme);

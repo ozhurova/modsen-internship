@@ -1,63 +1,37 @@
 @import 'src/styles/colors';
 @import 'src/styles/fonts';
 
-.page-wrapper {
-  height: calc(100vh - 70px);
+.container-wrapper {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 
-  .container-wrapper {
+  .login-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
-    .login-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      .login-title {
-        text-align: center;
-        font-weight: 700;
-        color: $blue-grey;
-      }
-
-      .login-field {
-        width: 250px;
-      }
-
-      .btn-container {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 8px;
-
-        .btn {
-          width: 100px;
-          height: 30px;
-          border: 1px solid $border-color;
-          border-radius: 10px;
-          box-shadow: 2px 2px 4px 0 $shadow-color;
-          transition-duration: 0.3s;
-          color: $white;
-          background-color: $blue-grey;
-          font-size: $fontSizeButton;
-          cursor: pointer;
-
-          &:hover {
-            box-shadow: 4px 4px 4px 0 $shadow-color;
-            transform: translateY(-1px);
-            background-color: $blue-grey-dark;
-          }
-        }
-      }
+    .login-title {
+      text-align: center;
+      font-weight: 700;
+      color: $blue-grey;
     }
 
-    .main-img {
-      margin: 35px;
-      height: 500px;
-      width: 500px;
-      background: url("/../../../../assets/img/main-img.png") center/ contain no-repeat;
+    .login-field {
+      width: 250px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 8px;
     }
   }
+
+  .main-img {
+    margin: 0 35px;
+    height: 500px;
+    width: 500px;
+    background: url("/../../../../assets/img/main-img.png") center/ contain no-repeat;
+  }
 }
+
