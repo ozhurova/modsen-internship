@@ -1,6 +1,7 @@
 {
   "HEADER": {
-    "LOG_OUT": "Выйти"
+    "LOG_OUT": "Выйти",
+    "HELLO": "Здравствуйте"
   },
   "HOME_PAGE": {
     "LOG_IN": "Войти",
