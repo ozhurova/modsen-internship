@@ -7,6 +7,11 @@
     </div>
   </a>
 
-  <button *ngIf="isAuthorisation" mat-flat-button color="warn" class="mat-btn-secondary">{{ 'HEADER.LOG_OUT' | translate }}</button>
+  <div class="right-wrapper" *ngIf="isAuthorisation">
+    <span class="userName">Hello, {{currentUserName}}</span>
+    <button mat-flat-button color="warn" class="mat-btn-secondary" (click)="logout()">{{ 'HEADER.LOG_OUT' |
+      translate }}
+    </button>
+  </div>
 
 </header>

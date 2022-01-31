@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { IAuthUser } from '../../models/user.model';
 import { Router } from '@angular/router';
+
+import { FormControl, Validators } from '@angular/forms';
+
+import { IAuthUser } from '../../models/user.model';
+import { UserApiService } from '../../services/userApi.service';
+import { UIService } from '../../services/ui.service';
 
 @Component({
     selector: 'app-home-page',
@@ -9,18 +13,24 @@ import { Router } from '@angular/router';
     styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-    constructor(private router: Router) {
+
+    constructor(
+        private router: Router,
+        private userApiService: UserApiService,
+        private uiService: UIService
+    ) {
     }
 
-    public email = new FormControl('', [Validators.required, Validators.email]);
-    public password = new FormControl('', [Validators.required]);
+    email = new FormControl('', [Validators.required, Validators.email]);
+    password = new FormControl('', [Validators.required]);
 
     submit(): void {
         const user: IAuthUser = {
-            username: this.email.value,
+            email: this.email.value,
             password: this.password.value
         };
-        console.log(user);
-        void this.router.navigate(['choose-tests']);
+
+        this.uiService.login(user);
+        this.router.navigate(['choose-tests']);
     }
 }

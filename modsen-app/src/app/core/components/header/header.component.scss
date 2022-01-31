@@ -23,5 +23,14 @@
       line-height: 35px;
     }
   }
+  .right-wrapper {
+    display: flex;
+
+    .userName {
+      margin-right: 20px;
+      align-self: center;
+      color: white;
+    }
+  }
 }
 
