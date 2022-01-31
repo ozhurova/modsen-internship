@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from './core/servises/local-storage.service';
-import { UIService } from './core/servises/ui.service';
+import { LocalStorageService } from './core/services/local-storage.service';
+import { UIService } from './core/services/ui.service';
 
 
 @Component({

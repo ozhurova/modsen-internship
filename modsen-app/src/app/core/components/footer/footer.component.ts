@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
-import { UIService } from '../../servises/ui.service';
+import { UIService } from '../../services/ui.service';
 
 @Component({
   selector: 'app-footer',
