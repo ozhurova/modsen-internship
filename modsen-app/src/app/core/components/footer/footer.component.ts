@@ -1,32 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 import { TranslateService } from '@ngx-translate/core';
+import { UIService } from '../../servises/ui.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
-  public currentLang = localStorage.getItem('language');
+export class FooterComponent {
 
   constructor(
-    public translate: TranslateService
-  ) {
-    translate.addLangs(['en', 'ru']);
-    translate.setDefaultLang('ru');
-  }
-
-  ngOnInit(): void {
-    if (this.currentLang) {
-      this.switchLang(this.currentLang);
-    }
-  }
+      private uiService: UIService,
+      public translate: TranslateService
+  ) {}
 
   switchLang(lang: string): void {
-    if (this.currentLang) {
-      localStorage.removeItem('language');
-    }
-    localStorage.setItem('language', `${lang}`);
-    this.translate.use(lang);
+    this.uiService.switchLang(lang);
   }
 }

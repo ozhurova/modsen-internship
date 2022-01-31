@@ -69,8 +69,9 @@ $md-mcorange: (
 );
 
 $my-custom-primary: mat-palette($md-mcbluegrey, 500);
-$my-custom-accent: mat-palette($md-mcorange, 500, A100, 900);
+$my-custom-accent: mat-palette($md-mcbluegrey, 500, A100, 900);
+$my-custom-warn: mat-palette($md-mcbluegrey, 900);
 
-$my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent);
+$my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent, $my-custom-warn);
 
 @include angular-material-theme($my-custom-theme);

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { AuthUser } from '../../models/interfaces/auth-interface';
+import { IAuthUser } from '../../models/user.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class HomePageComponent {
     public password = new FormControl('', [Validators.required]);
 
     submit(): void {
-        const user: AuthUser = {
+        const user: IAuthUser = {
             username: this.email.value,
             password: this.password.value
         };
