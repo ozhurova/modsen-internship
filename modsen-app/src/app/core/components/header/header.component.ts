@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { IUser } from '../../models/user.model';
-import { UIService } from '../../services/ui.service';
+
+import { UserApiService } from '../../api/user.api.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -9,23 +11,21 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isAuthorisation = false;
   currentUserName = '';
 
   constructor(
-      private uiService: UIService,
-      private userService: UserService
+    private userService: UserService,
+    private userApiService: UserApiService,
   ) {
   }
 
   ngOnInit(): void {
-    this.uiService.authSub.subscribe((res: boolean) => this.isAuthorisation = res);
-    this.uiService.userSub.subscribe((user: IUser | undefined) => {user ?
-        this.currentUserName = user.name :
-        this.currentUserName = '';}); //TODO get user from user.service
+    this.userService.userSub.subscribe((user: IUser | null) =>
+      user ? this.currentUserName = user.name : this.currentUserName = '');
   }
 
-    logout(): void {
-      this.uiService.logout();
-    }
+  logout(): void {
+    this.userService.saveUser(null);
+    this.userApiService.logout();
+  }
 }

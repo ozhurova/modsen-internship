@@ -7,7 +7,7 @@
     </div>
   </a>
 
-  <div class="right-wrapper" *ngIf="isAuthorisation">
+  <div class="right-wrapper" *ngIf="currentUserName">
     <span class="userName">{{ 'HEADER.HELLO' | translate }}, {{currentUserName}}</span>
     <button mat-flat-button color="warn" class="mat-btn-secondary" (click)="logout()">{{ 'HEADER.LOG_OUT' |
       translate }}
