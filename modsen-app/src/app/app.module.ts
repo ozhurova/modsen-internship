@@ -6,13 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-import { HomePageModule } from './core/pages/home-page/home-page.module';
 import { HeaderModule } from './core/components/header/header.module';
 import { FooterModule } from './core/components/footer/footer.module';
-import { ChooseTestsPageModule } from './core/pages/choose-tests-page/choose-tests-page.module';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HomePageModule } from './pages/home-page/home-page.module';
+import { ChooseTestsPageModule } from './pages/choose-tests-page/choose-tests-page.module';
 
 @NgModule({
   declarations: [

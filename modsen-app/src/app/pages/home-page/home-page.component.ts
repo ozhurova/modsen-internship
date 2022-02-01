@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FormControl, Validators } from '@angular/forms';
+import { UserApiService } from 'src/app/core/services/userApi.service';
+import { UIService } from 'src/app/core/services/ui.service';
+import { IAuthUser } from 'src/app/core/models/user.model';
 
-import { IAuthUser } from '../../models/user.model';
-import { UserApiService } from '../../services/userApi.service';
-import { UIService } from '../../services/ui.service';
 
 @Component({
     selector: 'app-home-page',
