@@ -13,8 +13,6 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UIService {
-  languages = Object.values(ELang);
-  currentLang = this.localStorageService.getItem('language');
 
   user: IUser | undefined;
   isAuth = false;
@@ -27,17 +25,18 @@ export class UIService {
       private userApiService: UserApiService,
       private router: Router
   ) {
-    translate.addLangs(this.languages);
-    translate.setDefaultLang(ELang.RU);
-
+    translate.addLangs(Object.values(ELang));
     this.userSub = new BehaviorSubject<IUser | undefined>(this.user || undefined);
     this.authSub = new BehaviorSubject<boolean>(this.isAuth); //TODO: localStorage ??
   }
-  switchLang(lang: string): void {
-    if (this.currentLang) {
-      this.localStorageService.removeItem('language');
-    }
-    this.localStorageService.setItem('language', `${lang}`);
+
+  init(): void {
+     const currentLang = this.localStorageService.getLang();
+     this.switchLang(currentLang);
+  }
+
+  switchLang(lang: ELang | string): void {
+    this.localStorageService.setLang(lang);
     this.translate.use(lang);
   }
 

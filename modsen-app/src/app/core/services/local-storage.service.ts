@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
+import { LANG } from '../constants/lang.constants';
+import { ELang } from '../models/lang.model';
+
+const DEFAULT_LANG = ELang.EN;
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
 
-  getItem(key: string): string | null {
-    return localStorage.getItem(`${key}`);
+  getLang(): string {
+    return localStorage.getItem(LANG) || DEFAULT_LANG;
   }
 
-  removeItem(key: string): void {
-    localStorage.removeItem(`${key}`);
-  }
-
-  setItem(key: string, value: string): void {
-    localStorage.setItem(`${key}`, `${value}`);
+  setLang(lang: ELang | string): void {
+    localStorage.setItem(LANG, lang);
   }
 }
