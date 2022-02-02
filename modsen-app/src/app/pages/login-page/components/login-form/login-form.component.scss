@@ -1,0 +1,26 @@
+@import 'src/styles/colors';
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+
+  .login-title {
+    text-align: center;
+    font-weight: 700;
+    color: $blue-grey;
+  }
+
+  .login-field {
+    width: 250px;
+  }
+
+  .input-error {
+    color: $red
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 8px;
+  }
+}

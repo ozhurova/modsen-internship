@@ -8,9 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
-  declarations: [LoginPageComponent],
+  declarations: [LoginPageComponent, LoginFormComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

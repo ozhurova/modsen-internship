@@ -1,29 +1,6 @@
 <div class="page-wrapper">
   <div class="container-wrapper">
-    <div class="login-container">
-
-      <h1 class="login-title">{{"HOME_PAGE.LOG_IN" | translate}}</h1>
-
-      <mat-form-field class="login-field" appearance="fill">
-        <mat-label>{{"HOME_PAGE.ENTER_EMAIL" | translate}}</mat-label>
-        <input name="email" type="email" matInput placeholder="pat@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.hasError('required')">{{"HOME_PAGE.ERROR_REQ" | translate}}</mat-error>
-        <mat-error *ngIf="email.hasError('email')">{{"HOME_PAGE.EMAIL_ERROR" | translate}}</mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="login-field" appearance="fill">
-        <mat-label>{{"HOME_PAGE.ENTER_PASSWORD" | translate}}</mat-label>
-        <input name="password" type="password" matInput [formControl]="password" required>
-        <mat-error *ngIf="password.hasError('required')">{{"HOME_PAGE.ERROR_REQ" | translate}}</mat-error>
-      </mat-form-field>
-
-      <div class="btn-container">
-        <button mat-raised-button color="primary" class="mat-btn-basic">{{"BUTTONS.CANCEL" | translate}}</button>
-        <button mat-raised-button color="primary" class="mat-btn-basic" (click)="login()">{{"BUTTONS.OK" | translate}}</button>
-      </div>
-
-    </div>
-
+    <app-login-form (loginEmitter)="login($event)" class="login-wrapper"></app-login-form>
     <div class="main-img"></div>
   </div>
 </div>
