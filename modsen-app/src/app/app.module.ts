@@ -12,7 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderModule } from './core/components/header/header.module';
 import { FooterModule } from './core/components/footer/footer.module';
 import { LoginPageModule } from './pages/login-page/login-page.module';
-import { ChooseTestsPageModule } from './pages/choose-tests-page/choose-tests-page.module';
+import { HomePageModule } from './pages/home-page/home-page.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { ChooseTestsPageModule } from './pages/choose-tests-page/choose-tests-pa
     LoginPageModule,
     HeaderModule,
     FooterModule,
-    ChooseTestsPageModule,
+    HomePageModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
