@@ -27,7 +27,7 @@ export class LoginPageComponent {
         .subscribe((user: IUser | null) => {
           if (user) {
             this.userService.saveUser(user);
-            this.router.navigate(['choose-tests']);
+            this.router.navigate(['home-page']);
           }
         });
     }
