@@ -22,6 +22,7 @@ export class UIService {
     this.switchLang(currentLang);
   }
 
+  // TODO: Remove string
   switchLang(lang: ELang | string): void {
     this.localStorageService.setLang(lang);
     this.translate.use(lang);

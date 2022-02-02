@@ -13,6 +13,7 @@ export class LocalStorageService {
     return localStorage.getItem(LANG) || DEFAULT_LANG;
   }
 
+  // TODO: Remove string
   setLang(lang: ELang | string): void {
     localStorage.setItem(LANG, lang);
   }

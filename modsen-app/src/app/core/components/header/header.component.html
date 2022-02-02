@@ -1,5 +1,6 @@
 <header class="header">
 
+  <!-- TODO: Logo is link to the home page -->
   <a href="">
     <div class="wrapper-logo">
       <img class="header-logo" src="/assets/img/logo.png" alt="">
@@ -7,6 +8,7 @@
     </div>
   </a>
 
+  <!-- TODO: remove currentUserName. Use userService.userSub -->
   <div class="right-wrapper" *ngIf="currentUserName">
     <span class="userName">{{ 'HEADER.HELLO' | translate }}, {{currentUserName}}</span>
     <button mat-flat-button color="warn" class="mat-btn-secondary" (click)="logout()">{{ 'HEADER.LOG_OUT' |

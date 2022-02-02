@@ -11,10 +11,10 @@ import { IUser } from '../models/user.model';
 })
 export class UserService {
   private user: IUser | null = null;
-  userSub: BehaviorSubject<IUser | null>;
+  userSub: BehaviorSubject<IUser | null>; // TODO: add $ for a rxJs var. Like userSub$
 
   constructor(
-    private userApiService: UserApiService,
+    private userApiService: UserApiService, // TODO: Remove unused injection
   ) {
     this.userSub = new BehaviorSubject<IUser | null>(this.user);
   }
