@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL : 'https://jsonplaceholder.typicode.com'
+  BASE_URL : 'https://jsonplaceholder.typicode.com',
+  DEV: 'Volha Zhurava'
 };
 
 /*
