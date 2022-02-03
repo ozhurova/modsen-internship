@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   logout(): void {
     this.userService.saveUser(null);
-    this.userApiService.logout(); // TODO: перенести в app.component подписка на user$ и если null, то navigate
   }
 
   ngOnDestroy(): void {
