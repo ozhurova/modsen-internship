@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
   canActivate(): Observable<boolean> | boolean {
     let result: IUser | null = null;
 
-    this.userService.userSub.subscribe((res: IUser | null) => result = res);
+    this.userService.user$.subscribe((res: IUser | null) => result = res);
 
     if (result) {
       return true;

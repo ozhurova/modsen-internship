@@ -14,14 +14,14 @@ import { UIService } from '../services/ui.service';
 })
 export class UserApiService {
   user: IUser | null = null;
-  userSub: BehaviorSubject<IUser | null>;
+  user$: BehaviorSubject<IUser | null>;
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private uiService: UIService,
   ) {
-    this.userSub = new BehaviorSubject<IUser | null>(this.user || null);
+    this.user$ = new BehaviorSubject<IUser | null>(this.user || null);
   }
 
   getUsers(): Observable<IUser[]> {

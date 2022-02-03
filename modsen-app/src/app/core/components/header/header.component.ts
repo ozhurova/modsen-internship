@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { IUser } from '../../models/user.model';
 
 import { UserApiService } from '../../api/user.api.service';
 import { UserService } from '../../services/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   currentUserName = '';
+  subscription: Subscription | null = null;
 
   constructor(
     private userService: UserService,
@@ -20,12 +22,19 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.userSub.subscribe((user: IUser | null) =>
-      user ? this.currentUserName = user.name : this.currentUserName = '');
+    this.subscription = this.userService.user$.subscribe((user: IUser | null) =>
+      this.currentUserName = user?.name || '');
   }
 
   logout(): void {
     this.userService.saveUser(null);
-    this.userApiService.logout();
+    this.userApiService.logout(); // TODO: перенести в app.component подписка на user$ и если null, то navigate
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
   }
 }

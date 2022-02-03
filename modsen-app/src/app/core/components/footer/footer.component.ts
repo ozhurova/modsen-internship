@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { UIService } from '../../services/ui.service';
 
 import { environment } from '../../../../environments/environment';
-import { ELang } from '../../models/lang.model'
+import { ELang } from '../../models/lang.model';
 
 
 @Component({
@@ -15,8 +15,8 @@ import { ELang } from '../../models/lang.model'
 export class FooterComponent {
 
  DEV = environment.DEV;
- ELang =Object.values(ELang)
- today =  new Date();
+ ELang = Object.values(ELang);
+ today = new Date();
 
   constructor(
       private uiService: UIService,

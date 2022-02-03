@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { IAuthUser } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-login-form',
@@ -7,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent {
-  @Output() loginEmitter: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() loginEmitter: EventEmitter<IAuthUser> = new EventEmitter<IAuthUser>();
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -15,7 +16,13 @@ export class LoginFormComponent {
   });
 
   login(): void {
-    this.loginEmitter.emit(this.loginForm);
+    const authUser: IAuthUser = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
+    };
+    if (this.loginForm.valid) {
+      this.loginEmitter.emit(authUser);
+    }
   }
 
   cancel(): void {

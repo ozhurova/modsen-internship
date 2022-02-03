@@ -10,16 +10,16 @@ import { IUser } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private user: IUser | null = null;
-  userSub: BehaviorSubject<IUser | null>;
+  readonly user: IUser | null = null;
+  user$: BehaviorSubject<IUser | null>;
 
   constructor(
     private userApiService: UserApiService,
   ) {
-    this.userSub = new BehaviorSubject<IUser | null>(this.user);
+    this.user$ = new BehaviorSubject<IUser | null>(this.user);
   }
 
   saveUser(user: IUser | null): void {
-    this.userSub.next(user);
+    this.user$.next(user);
   }
 }
