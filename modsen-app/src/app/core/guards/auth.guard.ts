@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { IUser } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
@@ -10,16 +9,10 @@ export class AuthGuard implements CanActivate {
               private userService: UserService) {
   }
 
-  canActivate(): Observable<boolean> | boolean {
-    let result: IUser | null = null;
+  canActivate(): boolean {
 
-    this.userService.user$.subscribe((res: IUser | null) => result = res);
-
-    if (result) {
-      return true;
-    } else {
-      this.router.navigate(['']);
-      return false;
-    }
+    let user: IUser | null = null;
+    this.userService.user$.subscribe((res: IUser | null) => user = res);
+    return !!user;
   }
 }
