@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PostsApiService } from 'src/app/core/api/posts.api.service';
 import { IPost } from 'src/app/core/models/post.model';
-import { PostsPageService } from './service/posts-page.service';
+import { PostsPageService } from './posts-page.service';
 
 @Component({
   selector: 'app-posts-page',
@@ -11,13 +10,14 @@ import { PostsPageService } from './service/posts-page.service';
   providers: [PostsPageService]
 })
 export class PostsPageComponent implements OnInit {
+  dataPosts: IPost[] = [];
 
   constructor(
-    private postsApiService: PostsApiService,
-    private postsPageService: PostsPageService
-  ) { }
+    public postsPageService: PostsPageService
+  ) {
+  }
 
   ngOnInit(): void {
-    this.postsApiService.getPosts().subscribe((posts: IPost[]) => this.postsPageService.savePosts(posts));
+    this.postsPageService.init();
   }
 }

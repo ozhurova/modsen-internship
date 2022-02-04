@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
   {
     path: 'posts-page', loadChildren: (): any => import('./pages/posts-page/posts-page.module')
-      .then((m: any) => m.PostsPageModule)
+      .then((m: any) => m.PostsPageModule), canActivate: [AuthGuard]
   }
 ];
 

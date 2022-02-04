@@ -1,1 +1,7 @@
-<p>posts</p>
+<div class="wrapper">
+  <app-post *ngFor="let post of postsPageService.posts$ | async"
+            [title]="post.title"
+            [content]="post.body">
+  </app-post>
+</div>
+
