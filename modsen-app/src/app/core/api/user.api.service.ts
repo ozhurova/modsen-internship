@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, of } from 'rxjs';
 
 import { IUser } from '../models/user.model';
 import { environment } from '../../../environments/environment';
@@ -35,5 +35,9 @@ export class UserApiService {
       (err: Error) =>
         this.uiService.showError(err)
     ));
+  }
+
+  logout(): Observable<boolean> {
+    return of(true).pipe(map((res: boolean) => res));
   }
 }
