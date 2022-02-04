@@ -13,6 +13,7 @@ import { HeaderModule } from './core/components/header/header.module';
 import { FooterModule } from './core/components/footer/footer.module';
 import { LoginPageModule } from './pages/login-page/login-page.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
+import { PostsPageModule } from './pages/posts-page/posts-page.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HomePageModule } from './pages/home-page/home-page.module';
     HeaderModule,
     FooterModule,
     HomePageModule,
+    PostsPageModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
