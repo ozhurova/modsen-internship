@@ -36,8 +36,4 @@ export class UserApiService {
         this.uiService.showError(err)
     ));
   }
-
-  logout(): void {
-    this.router.navigate(['']);
-  }
 }
