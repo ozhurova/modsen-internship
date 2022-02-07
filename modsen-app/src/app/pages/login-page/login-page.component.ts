@@ -26,7 +26,7 @@ export class LoginPageComponent {
       .pipe(filter((user: IUser | null) => !!user))
       .subscribe((user: IUser | null) => {
         this.userService.saveUser(user as IUser);
-        this.router.navigate(['home-page']);
+        this.router.navigate(['home']);
       });
   }
 }

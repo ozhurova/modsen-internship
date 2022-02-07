@@ -16,8 +16,4 @@ export class PostsPageService {
   init(): void {
     this.postsApiService.getPosts().subscribe((posts: IPost[]) => this.posts$.next(posts));
   }
-
-  savePosts(posts: IPost[]): void {
-    this.posts$.next(posts);
-  }
 }

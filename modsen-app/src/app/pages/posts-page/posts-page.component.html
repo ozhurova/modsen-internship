@@ -1,7 +1,8 @@
 <div class="wrapper">
   <app-post *ngFor="let post of postsPageService.posts$ | async"
             [title]="post.title"
-            [content]="post.body">
+            [content]="post.body"
+            class="post">
   </app-post>
 </div>
 
