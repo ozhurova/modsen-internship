@@ -3,7 +3,7 @@
 @include mat-core();
 
 $md-mcbluegrey: (
-        50 : #e7ecef,
+        50 : #f8fafe,
         100 : #c7d4da,
         200 : #9db0bb,
         300 : #7b98a5,
@@ -69,8 +69,8 @@ $md-mcorange: (
 );
 
 $my-custom-primary: mat-palette($md-mcbluegrey, 500);
-$my-custom-accent: mat-palette($md-mcbluegrey, 500, A100, 900);
-$my-custom-warn: mat-palette($md-mcbluegrey, 900);
+$my-custom-accent: mat-palette($md-mcorange, 500, A100, 900);
+$my-custom-warn: mat-palette($md-mcorange, 900);
 
 $my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent, $my-custom-warn);
 

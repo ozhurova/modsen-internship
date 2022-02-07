@@ -1,10 +1,11 @@
 <footer class="footer">
-  <a class="footer-link" href="https://ozhurova.github.io/rsschool-cv/" target="_blank">© {{today.getFullYear()}} {{DEV}}</a>
+  <a class="footer-link" href="https://ozhurova.github.io/rsschool-cv/" target="_blank">© {{today.getFullYear()}}
+    {{DEV}}</a>
 
   <select class="lang-select"
           #selectedLang
           (change)="switchLang(selectedLang.value)">
-        <option *ngFor="let language of ELang"
+    <option *ngFor="let language of ELang"
             [value]="language"
             [selected]="language === translate.currentLang">
       {{ language }}

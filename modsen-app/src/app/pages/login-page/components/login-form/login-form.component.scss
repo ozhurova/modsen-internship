@@ -1,5 +1,7 @@
 @import 'src/styles/colors';
 
+$login-field-width: 250px;
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -7,15 +9,15 @@
   .login-title {
     text-align: center;
     font-weight: 700;
-    color: $blue-grey;
+    color: $primary-500;
   }
 
   .login-field {
-    width: 250px;
+    width: $login-field-width;
   }
 
   .input-error {
-    color: $red
+    color: $error-color
   }
 
   .btn-container {

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import { LocalStorageService } from './local-storage.service';
 import { TranslateService } from '@ngx-translate/core';
-
 import { ELang } from '../models/lang.model';
 
 @Injectable({

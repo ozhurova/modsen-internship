@@ -1,6 +1,8 @@
 @import 'src/styles/colors';
 @import 'src/styles/fonts';
 
+$img-height-width: 500px;
+
 .container-wrapper {
   display: flex;
   justify-content: center;
@@ -11,10 +13,9 @@
   }
 
   .main-img {
+    width: $img-height-width;
+    height: $img-height-width;
     margin: 0 35px;
-    height: 500px;
-    width: 500px;
     background: url("/assets/img/main-img.png") center/ contain no-repeat;
   }
 }
-

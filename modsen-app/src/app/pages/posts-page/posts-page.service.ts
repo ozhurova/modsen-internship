@@ -18,7 +18,6 @@ export class PostsPageService {
   }
 
   savePosts(posts: IPost[]): void {
-    console.log(posts);
     this.posts$.next(posts);
   }
 }

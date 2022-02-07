@@ -1,23 +1,24 @@
 @import 'src/styles/colors';
 @import 'src/styles/fonts';
+@import 'src/styles/variables';
 
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 35px;
-  background-color: $blue-grey-dark;
+  width: $header-footer-width;
+  height: $header-footer-height;
+  background-color: $primary-900;
 
   .footer-link {
     text-decoration: none;
-    color: $white;
+    color: $white-color;
   }
 
   .lang-select {
-    background-color: $blue-grey;
-    border-radius: 5px;
+    background-color: $primary-500;
+    border-radius: $border-radius;
     margin: 0 10px;
-    color: $white;
+    color: $white-color;
   }
 }

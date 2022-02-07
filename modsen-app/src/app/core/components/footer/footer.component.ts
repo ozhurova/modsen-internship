@@ -6,7 +6,6 @@ import { UIService } from '../../services/ui.service';
 import { environment } from '../../../../environments/environment';
 import { ELang } from '../../models/lang.model';
 
-
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -14,14 +13,15 @@ import { ELang } from '../../models/lang.model';
 })
 export class FooterComponent {
 
- DEV = environment.DEV;
- ELang = Object.values(ELang);
- today = new Date();
+  DEV = environment.DEV;
+  ELang = Object.values(ELang);
+  today = new Date();
 
   constructor(
-      private uiService: UIService,
-      public translate: TranslateService
-  ) {}
+    private uiService: UIService,
+    public translate: TranslateService
+  ) {
+  }
 
   switchLang(lang: string): void {
     this.uiService.switchLang(lang);

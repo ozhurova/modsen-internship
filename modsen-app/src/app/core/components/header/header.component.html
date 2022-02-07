@@ -1,6 +1,6 @@
 <header class="header">
 
-  <a routerLink="" routerLinkActive="active-link">
+  <a routerLink="home-page" routerLinkActive="active-link">
     <div class="wrapper-logo">
       <img class="header-logo" src="/assets/img/logo.png" alt="">
       <p class="logo-text">My company</p>
@@ -8,8 +8,8 @@
   </a>
 
   <div class="right-wrapper" *ngIf="currentUserName">
-    <span class="userName">{{ 'HEADER.HELLO' | translate }}, {{currentUserName}}</span>
-    <button mat-flat-button color="warn" class="mat-btn-secondary" (click)="logout()">{{ 'HEADER.LOG_OUT' |
+    <span class="user-name">{{ 'HEADER.HELLO' | translate }}, {{currentUserName}}</span>
+    <button mat-flat-button color="primary" (click)="logout()">{{ 'HEADER.LOG_OUT' |
       translate }}
     </button>
   </div>

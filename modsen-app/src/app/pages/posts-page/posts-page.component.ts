@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { IPost } from 'src/app/core/models/post.model';
 import { PostsPageService } from './posts-page.service';
 
