@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LANG } from '../constants/lang.constants'
+import { LANG } from '../constants/lang.constants';
 import { ELang } from '../models/lang.model';
 
 const DEFAULT_LANG = ELang.EN;

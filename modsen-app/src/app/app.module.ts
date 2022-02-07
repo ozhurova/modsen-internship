@@ -16,7 +16,6 @@ import { HomePageModule } from './pages/home-page/home-page.module';
 import { PostsPageModule } from './pages/posts-page/posts-page.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -13,19 +13,17 @@ export class UIService {
     private translate: TranslateService,
   ) {
     translate.addLangs(Object.keys(ELang));
-    translate.currentLang = ELang.RU.toUpperCase()
-
   }
 
   init(): void {
     const currentLang = this.localStorageService.getLang();
+    this.translate.currentLang = currentLang.toUpperCase();
     this.switchLang(currentLang);
   }
 
   switchLang(lang: ELang): void {
     this.translate.use(lang);
     this.localStorageService.setLang(lang);
-
   }
 
   showError(err: Error): void {

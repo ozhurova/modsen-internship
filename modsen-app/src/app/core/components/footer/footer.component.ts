@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 
-import { TranslateService } from '@ngx-translate/core';
-
 import { environment } from '../../../../environments/environment';
-import { ELang } from '../../models/lang.model'
-import { UIService } from '../../services/ui.service';
+import { ELang } from '../../models/lang.model';
 
+import { UIService } from '../../services/ui.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
