@@ -9,10 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-
   DEV = environment.DEV;
   ELang = ELang;
   today = new Date();
@@ -21,8 +20,7 @@ export class FooterComponent {
   constructor(
     public uiService: UIService,
     public translate: TranslateService
-  ) {
-  }
+  ) {}
 
   switchLang(): void {
     if (this.selectedLang) {

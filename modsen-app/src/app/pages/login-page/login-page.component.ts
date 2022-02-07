@@ -10,19 +10,18 @@ import { filter } from 'rxjs';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss']
+  styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
-
   constructor(
     private router: Router,
     private userApiService: UserApiService,
-    private userService: UserService,
-  ) {
-  }
+    private userService: UserService
+  ) {}
 
   login(authUser: IAuthUser): void {
-    this.userApiService.login(authUser.email, authUser.password)
+    this.userApiService
+      .login(authUser.email, authUser.password)
       .pipe(filter((user: IUser | null) => !!user))
       .subscribe((user: IUser | null) => {
         this.userService.saveUser(user as IUser);

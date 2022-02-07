@@ -19,9 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MatInputModule,
     MatButtonModule,
     TranslateModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [LoginPageComponent],
 })
-export class LoginPageModule {
-}
+export class LoginPageModule {}

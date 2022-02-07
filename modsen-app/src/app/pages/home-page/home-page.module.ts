@@ -5,10 +5,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [HomePageComponent],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports: [HomePageComponent]
+  imports: [CommonModule, RouterModule],
+  exports: [HomePageComponent],
 })
-export class HomePageModule { }
+export class HomePageModule {}

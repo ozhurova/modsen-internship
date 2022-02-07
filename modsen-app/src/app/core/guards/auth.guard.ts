@@ -5,13 +5,11 @@ import { UserService } from '../services/user.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-
-  constructor(private userService: UserService) {
-  }
+  constructor(private userService: UserService) {}
 
   canActivate(): boolean {
     let user: IUser | null = null;
-    this.userService.user$.subscribe((res: IUser | null) => user = res);
+    this.userService.user$.subscribe((res: IUser | null) => (user = res));
     return !!user;
   }
 }

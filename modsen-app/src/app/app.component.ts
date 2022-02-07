@@ -8,7 +8,7 @@ import { UserService } from './core/services/user.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'modsen-app';
@@ -23,12 +23,13 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
-    this.subscription = this.userService.user$.subscribe((user: IUser | null) => {
-      if (user === null) {
-        this.router.navigate(['']);
+    this.subscription = this.userService.user$.subscribe(
+      (user: IUser | null) => {
+        if (user === null) {
+          this.router.navigate(['']);
+        }
       }
-    });
+    );
   }
 
   ngOnDestroy(): void {

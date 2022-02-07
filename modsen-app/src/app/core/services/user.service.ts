@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { IUser } from '../models/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   readonly user$ = new BehaviorSubject<IUser | null>(null);

@@ -6,14 +6,10 @@ import { environment } from 'src/environments/environment';
 import { IPost } from '../models/post.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostsApiService {
-
-  constructor(
-    private http: HttpClient,
-  ) {
-  }
+  constructor(private http: HttpClient) {}
 
   getPosts(): Observable<IPost[]> {
     return this.http.get<IPost[]>(`${environment.BASE_URL}/posts`);

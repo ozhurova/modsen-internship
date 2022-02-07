@@ -5,15 +5,13 @@ import { IPost } from '../../core/models/post.model';
 
 @Injectable()
 export class PostsPageService {
-
   readonly posts$ = new BehaviorSubject<IPost[]>([]);
 
-  constructor(
-    private postsApiService: PostsApiService
-  ) {
-  }
+  constructor(private postsApiService: PostsApiService) {}
 
   init(): void {
-    this.postsApiService.getPosts().subscribe((posts: IPost[]) => this.posts$.next(posts));
+    this.postsApiService
+      .getPosts()
+      .subscribe((posts: IPost[]) => this.posts$.next(posts));
   }
 }

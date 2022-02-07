@@ -8,7 +8,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   currentUserName = '';
@@ -16,19 +16,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(
     private userService: UserService,
-    private userApiService: UserApiService,
-  ) {
-  }
+    private userApiService: UserApiService
+  ) {}
 
   ngOnInit(): void {
-    this.subscription = this.userService.user$.subscribe((user: IUser | null) =>
-      this.currentUserName = user?.name || '');
+    this.subscription = this.userService.user$.subscribe(
+      (user: IUser | null) => (this.currentUserName = user?.name || '')
+    );
   }
 
   logout(): void {
-    this.userApiService.logout().subscribe(() =>
-      this.userService.saveUser(null)
-    );
+    this.userApiService
+      .logout()
+      .subscribe(() => this.userService.saveUser(null));
   }
 
   ngOnDestroy(): void {

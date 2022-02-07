@@ -7,13 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [HeaderComponent],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    MatButtonModule,
-    RouterModule
-  ],
-  exports: [HeaderComponent]
+  imports: [CommonModule, TranslateModule, MatButtonModule, RouterModule],
+  exports: [HeaderComponent],
 })
-export class HeaderModule {
-}
+export class HeaderModule {}

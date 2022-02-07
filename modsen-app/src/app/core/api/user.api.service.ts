@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 import { UIService } from '../services/ui.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserApiService {
   user: IUser | null = null;
@@ -19,7 +19,7 @@ export class UserApiService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private uiService: UIService,
+    private uiService: UIService
   ) {
     this.user$ = new BehaviorSubject<IUser | null>(this.user || null);
   }
@@ -29,12 +29,15 @@ export class UserApiService {
   }
 
   login(email: string, password: string): Observable<IUser | null> {
-    return this.getUsers().pipe(map(
-      (users: IUser[]) =>
-        users.find((i: IUser) => i.email === email && i.website === password) || null,
-      (err: Error) =>
-        this.uiService.showError(err)
-    ));
+    return this.getUsers().pipe(
+      map(
+        (users: IUser[]) =>
+          users.find(
+            (i: IUser) => i.email === email && i.website === password
+          ) || null,
+        (err: Error) => this.uiService.showError(err)
+      )
+    );
   }
 
   logout(): Observable<boolean> {

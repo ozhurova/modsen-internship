@@ -9,9 +9,13 @@ const routes: Routes = [
   { path: '', component: LoginPageComponent },
   { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
   {
-    path: 'posts', loadChildren: (): any => import('./pages/posts-page/posts-page.module')
-      .then((m: any) => m.PostsPageModule), canActivate: [AuthGuard]
-  }
+    path: 'posts',
+    loadChildren: (): any =>
+      import('./pages/posts-page/posts-page.module').then(
+        (m: any) => m.PostsPageModule
+      ),
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
@@ -19,5 +23,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [AuthGuard],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

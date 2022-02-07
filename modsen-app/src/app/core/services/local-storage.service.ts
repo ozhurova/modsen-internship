@@ -5,12 +5,11 @@ import { ELang } from '../models/lang.model';
 const DEFAULT_LANG = ELang.EN;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageService {
-
   getLang(): ELang {
-    return localStorage.getItem(LANG) as ELang || DEFAULT_LANG;
+    return (localStorage.getItem(LANG) as ELang) || DEFAULT_LANG;
   }
 
   setLang(lang: ELang): void {

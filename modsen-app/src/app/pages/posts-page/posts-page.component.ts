@@ -6,15 +6,12 @@ import { PostsPageService } from './posts-page.service';
   selector: 'app-posts-page',
   templateUrl: './posts-page.component.html',
   styleUrls: ['./posts-page.component.scss'],
-  providers: [PostsPageService]
+  providers: [PostsPageService],
 })
 export class PostsPageComponent implements OnInit {
   dataPosts: IPost[] = [];
 
-  constructor(
-    public postsPageService: PostsPageService
-  ) {
-  }
+  constructor(public postsPageService: PostsPageService) {}
 
   ngOnInit(): void {
     this.postsPageService.init();

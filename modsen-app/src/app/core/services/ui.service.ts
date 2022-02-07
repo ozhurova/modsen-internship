@@ -4,13 +4,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { ELang } from '../models/lang.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UIService {
-
   constructor(
     private localStorageService: LocalStorageService,
-    private translate: TranslateService,
+    private translate: TranslateService
   ) {
     translate.addLangs(Object.keys(ELang));
   }

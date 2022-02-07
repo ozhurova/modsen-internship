@@ -16,10 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
     PostsPageRoutingModule,
     MatCardModule,
     MatButtonModule,
-
   ],
   exports: [PostsPageComponent],
-  providers: [PostsPageService]
+  providers: [PostsPageService],
 })
-export class PostsPageModule {
-}
+export class PostsPageModule {}
