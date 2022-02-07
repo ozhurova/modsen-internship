@@ -12,7 +12,9 @@ export class UIService {
     private localStorageService: LocalStorageService,
     private translate: TranslateService,
   ) {
-    translate.addLangs(Object.values(ELang));
+    translate.addLangs(Object.keys(ELang));
+    translate.currentLang = ELang.RU.toUpperCase()
+
   }
 
   init(): void {
@@ -20,9 +22,10 @@ export class UIService {
     this.switchLang(currentLang);
   }
 
-  switchLang(lang: ELang | string): void {
-    this.localStorageService.setLang(lang);
+  switchLang(lang: ELang): void {
     this.translate.use(lang);
+    this.localStorageService.setLang(lang);
+
   }
 
   showError(err: Error): void {

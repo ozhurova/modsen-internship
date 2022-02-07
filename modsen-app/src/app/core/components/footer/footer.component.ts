@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
-import { UIService } from '../../services/ui.service';
 
 import { environment } from '../../../../environments/environment';
-import { ELang } from '../../models/lang.model';
+import { ELang } from '../../models/lang.model'
+import { UIService } from '../../services/ui.service';
+
 
 @Component({
   selector: 'app-footer',
@@ -14,16 +15,19 @@ import { ELang } from '../../models/lang.model';
 export class FooterComponent {
 
   DEV = environment.DEV;
-  ELang = Object.values(ELang);
+  ELang = ELang;
   today = new Date();
+  selectedLang?: ELang;
 
   constructor(
-    private uiService: UIService,
+    public uiService: UIService,
     public translate: TranslateService
   ) {
   }
 
-  switchLang(lang: string): void {
-    this.uiService.switchLang(lang);
+  switchLang(): void {
+    if (this.selectedLang) {
+      this.uiService.switchLang(this.selectedLang);
+    }
   }
 }

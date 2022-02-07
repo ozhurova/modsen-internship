@@ -19,10 +19,11 @@ export class AppComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private router: Router
   ) {
+    this.uiService.init();
   }
 
   ngOnInit(): void {
-    this.uiService.init();
+
     this.subscription = this.userService.user$.subscribe((user: IUser | null) => {
       if (user === null) {
         this.router.navigate(['']);
