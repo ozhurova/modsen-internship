@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PostsPageComponent } from './posts-page.component';
-import { PostsPageService } from './posts-page.service';
+import { PostsService } from './posts.service';
 import { PostsPageRoutingModule } from './posts-page-routing.module';
 import { PostComponent } from './components/post/post.component';
 
@@ -18,6 +18,6 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
   ],
   exports: [PostsPageComponent],
-  providers: [PostsPageService],
+  providers: [PostsService],
 })
 export class PostsPageModule {}
