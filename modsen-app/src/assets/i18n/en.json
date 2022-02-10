@@ -3,7 +3,7 @@
     "LOG_OUT": "log out",
     "HELLO": "Hello"
   },
-  "HOME_PAGE": {
+  "LOGIN_PAGE": {
     "LOG_IN": "log in",
     "ENTER_EMAIL": "Enter your email",
     "ENTER_PASSWORD": "Enter your password",
@@ -12,6 +12,10 @@
   },
   "BUTTONS": {
     "CANCEL": "Cancel",
-    "OK": "OK"
+    "OK": "OK",
+    "READ": "Read"
+  },
+  "CARD": {
+    "TITLE": "Posts"
   }
 }

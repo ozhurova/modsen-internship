@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .card {
+    max-width: 300px;
+    margin: 8px;
+  }
+}

@@ -1,23 +1,23 @@
 <div class="login-container">
   <form class="login-container" [formGroup]="loginForm">
 
-    <h1 class="login-title">{{"HOME_PAGE.LOG_IN" | translate}}</h1>
+    <h1 class="login-title">{{"LOGIN_PAGE.LOG_IN" | translate}}</h1>
 
     <mat-form-field class="login-field" appearance="fill">
-      <mat-label>{{"HOME_PAGE.ENTER_EMAIL" | translate}}</mat-label>
+      <mat-label>{{"LOGIN_PAGE.ENTER_EMAIL" | translate}}</mat-label>
       <input name="email" type="email" matInput placeholder="pat@example.com" formControlName="email" required>
-      <mat-error *ngIf="loginForm.controls['email'].hasError('required')" class="input-error">{{"HOME_PAGE.ERROR_REQ" |
+      <mat-error *ngIf="loginForm.controls['email'].hasError('required')" class="input-error">{{"LOGIN_PAGE.ERROR_REQ" |
         translate}}
       </mat-error>
-      <mat-error *ngIf="loginForm.controls['email'].hasError('email')" class="input-error">{{"HOME_PAGE.EMAIL_ERROR" |
+      <mat-error *ngIf="loginForm.controls['email'].hasError('email')" class="input-error">{{"LOGIN_PAGE.EMAIL_ERROR" |
         translate}}
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="login-field" appearance="fill">
-      <mat-label>{{"HOME_PAGE.ENTER_PASSWORD" | translate}}</mat-label>
+      <mat-label>{{"LOGIN_PAGE.ENTER_PASSWORD" | translate}}</mat-label>
       <input name="password" type="password" matInput formControlName="password" required>
-      <mat-error *ngIf="loginForm.controls['password'].hasError('required')" class="input-error">{{"HOME_PAGE.ERROR_REQ"
+      <mat-error *ngIf="loginForm.controls['password'].hasError('required')" class="input-error">{{"LOGIN_PAGE.ERROR_REQ"
         | translate}}
       </mat-error>
     </mat-form-field>

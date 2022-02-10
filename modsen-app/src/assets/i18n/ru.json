@@ -3,7 +3,7 @@
     "LOG_OUT": "Выйти",
     "HELLO": "Здравствуйте"
   },
-  "HOME_PAGE": {
+  "LOGIN_PAGE": {
     "LOG_IN": "Войти",
     "ENTER_EMAIL": "Введите эл.почту",
     "ENTER_PASSWORD": "Введите пароль",
@@ -12,6 +12,10 @@
   },
   "BUTTONS": {
     "CANCEL": "Отмена",
-    "OK": "ОК"
+    "OK": "ОК",
+    "READ": "Читать"
+  },
+  "CARD": {
+    "TITLE": "Сообщения"
   }
 }
