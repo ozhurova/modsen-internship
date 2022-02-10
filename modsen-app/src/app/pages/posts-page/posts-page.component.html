@@ -2,6 +2,7 @@
   <app-post *ngFor="let post of postsPageService.posts$ | async"
             [title]="post.title"
             [content]="post.body"
+            [postId]="post.id"
             class="post">
   </app-post>
 </div>

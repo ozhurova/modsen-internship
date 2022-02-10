@@ -14,6 +14,7 @@ import { FooterModule } from './core/components/footer/footer.module';
 import { LoginPageModule } from './pages/login-page/login-page.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
 import { PostsPageModule } from './pages/posts-page/posts-page.module';
+import { CommentsPageModule } from './pages/comments-page/comments-page.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    CommentsPageModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

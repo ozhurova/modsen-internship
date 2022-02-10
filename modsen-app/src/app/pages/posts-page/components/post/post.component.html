@@ -3,4 +3,9 @@
   <mat-card-content>
     <p>{{content}}</p>
   </mat-card-content>
+
+  <a mat-raised-button color="primary" class="mat-btn-primary"
+     routerLink ="/comments" [queryParams]="{id:postId}" routerLinkActive="active">Comments
+  </a>
+
 </mat-card>

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { CommentsPageComponent } from './pages/comments-page/comments-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -14,6 +15,11 @@ const routes: Routes = [
       import('./pages/posts-page/posts-page.module').then(
         (m: any) => m.PostsPageModule
       ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'comments',
+    component: CommentsPageComponent,
     canActivate: [AuthGuard],
   },
 ];

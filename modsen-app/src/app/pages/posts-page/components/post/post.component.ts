@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class PostComponent {
   @Input() title = '';
   @Input() content = '';
+  @Input() postId: number | null = null;
 }
