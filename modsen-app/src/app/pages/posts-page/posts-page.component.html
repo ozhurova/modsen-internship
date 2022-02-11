@@ -1,8 +1,16 @@
 <div class="wrapper">
-  <app-post *ngFor="let post of postsPageService.posts$ | async"
+<!--  <app-post *ngFor="let post of postsService.posts$ | async"-->
+<!--            [title]="post.title"-->
+<!--            [content]="post.body"-->
+<!--            [postId]="post.id"-->
+<!--            [userId]="post.userId"-->
+<!--            class="post">-->
+<!--  </app-post>  -->
+  <app-post *ngFor="let post of posts"
             [title]="post.title"
             [content]="post.body"
             [postId]="post.id"
+            [userName]="post.userName"
             class="post">
   </app-post>
 </div>

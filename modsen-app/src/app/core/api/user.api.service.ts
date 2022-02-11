@@ -14,18 +14,20 @@ import { UIService } from '../services/ui.service';
 })
 export class UserApiService {
   user: IUser | null = null;
-  user$: BehaviorSubject<IUser | null>;
+  user$ = new BehaviorSubject<IUser | null>(this.user || null);
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private uiService: UIService
-  ) {
-    this.user$ = new BehaviorSubject<IUser | null>(this.user || null);
-  }
+  ) {}
 
   getUsers(): Observable<IUser[]> {
     return this.http.get<IUser[]>(`${environment.BASE_URL}/users`);
+  }
+
+  getUserById(id: number): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.BASE_URL}/users/${id}`);
   }
 
   login(email: string, password: string): Observable<IUser | null> {

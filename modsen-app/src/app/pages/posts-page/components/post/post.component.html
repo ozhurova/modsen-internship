@@ -1,11 +1,12 @@
 <mat-card class="post">
+  <p>{{userName}}</p>
   <mat-card-title>{{title}}</mat-card-title>
   <mat-card-content>
     <p>{{content}}</p>
   </mat-card-content>
 
   <a mat-raised-button color="primary" class="mat-btn-primary"
-     routerLink ="/comments" [queryParams]="{id:postId}" routerLinkActive="active">Comments
+     routerLink ="/comments" [queryParams]="{id:postId}" routerLinkActive="active">{{ "POST.LINK" | translate}}
   </a>
 
 </mat-card>

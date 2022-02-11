@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { UserApiService } from 'src/app/core/api/user.api.service';
+
 import { IPost } from 'src/app/core/models/post.model';
+import { IUser } from 'src/app/core/models/user.model';
 import { PostsService } from './posts.service';
 
 @Component({
@@ -9,11 +13,22 @@ import { PostsService } from './posts.service';
   providers: [PostsService],
 })
 export class PostsPageComponent implements OnInit {
-  dataPosts: IPost[] = [];
+  posts: IPost[] = [];
 
-  constructor(public postsPageService: PostsService) {}
+  constructor(
+    public postsService: PostsService,
+    private userApiService: UserApiService
+  ) {}
 
   ngOnInit(): void {
-    this.postsPageService.init();
+    this.postsService.init();
+    this.postsService.posts$.subscribe((posts: IPost[]) => {
+      this.posts = posts;
+      this.posts.forEach((post: IPost) =>
+        this.userApiService
+          .getUserById(post.userId)
+          .subscribe((res: IUser) => (post.userName = res.name))
+      );
+    });
   }
 }

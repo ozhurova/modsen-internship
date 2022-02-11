@@ -12,10 +12,13 @@
   },
   "BUTTONS": {
     "CANCEL": "Cancel",
-    "OK": "OK",
-    "READ": "Read"
+    "OK": "OK"
   },
   "CARD": {
-    "TITLE": "Posts"
+    "TITLE": "Posts",
+    "LINK": "See"
+  },
+  "POST": {
+    "LINK": "Comments"
   }
 }
