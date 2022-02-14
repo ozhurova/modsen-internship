@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
-import { UserApiService } from 'src/app/core/api/user.api.service';
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IPost } from 'src/app/core/models/post.model';
-import { IUser } from 'src/app/core/models/user.model';
 import { PostsService } from './posts.service';
 
 @Component({
@@ -12,23 +9,24 @@ import { PostsService } from './posts.service';
   styleUrls: ['./posts-page.component.scss'],
   providers: [PostsService],
 })
-export class PostsPageComponent implements OnInit {
-  posts: IPost[] = [];
+export class PostsPageComponent implements OnInit, OnDestroy {
+  isDataAvailable = false;
+  subscription: Subscription | null = null;
 
-  constructor(
-    public postsService: PostsService,
-    private userApiService: UserApiService
-  ) {}
+  constructor(public postsService: PostsService) {}
 
   ngOnInit(): void {
     this.postsService.init();
-    this.postsService.posts$.subscribe((posts: IPost[]) => {
-      this.posts = posts;
-      this.posts.forEach((post: IPost) =>
-        this.userApiService
-          .getUserById(post.userId)
-          .subscribe((res: IUser) => (post.userName = res.name))
-      );
+    this.subscription = this.postsService.posts$.subscribe((posts: IPost[]) => {
+      if (posts !== []) {
+        this.isDataAvailable = true;
+      }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

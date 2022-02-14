@@ -1,5 +1,8 @@
-<mat-card class="post">
-  <p>{{userName}}</p>
+<mat-card *ngIf="title" class="post">
+
+  <mat-progress-bar *ngIf="!userName"mode="buffer"></mat-progress-bar>
+  <p *ngIf="userName">{{userName}}</p>
+
   <mat-card-title>{{title}}</mat-card-title>
   <mat-card-content>
     <p>{{content}}</p>

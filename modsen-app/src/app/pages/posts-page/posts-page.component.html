@@ -1,17 +1,11 @@
-<div class="wrapper">
-<!--  <app-post *ngFor="let post of postsService.posts$ | async"-->
-<!--            [title]="post.title"-->
-<!--            [content]="post.body"-->
-<!--            [postId]="post.id"-->
-<!--            [userId]="post.userId"-->
-<!--            class="post">-->
-<!--  </app-post>  -->
-  <app-post *ngFor="let post of posts"
+<mat-spinner *ngIf="!isDataAvailable"></mat-spinner>
+<div class="wrapper" *ngIf="isDataAvailable">
+  <app-post *ngFor="let post of postsService.posts$ | async"
             [title]="post.title"
             [content]="post.body"
             [postId]="post.id"
+            [userId]="post.userId"
             [userName]="post.userName"
             class="post">
   </app-post>
 </div>
-
