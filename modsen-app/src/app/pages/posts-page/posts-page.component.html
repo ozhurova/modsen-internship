@@ -1,11 +1,7 @@
 <mat-spinner *ngIf="!isDataAvailable"></mat-spinner>
 <div class="wrapper" *ngIf="isDataAvailable">
   <app-post *ngFor="let post of postsService.posts$ | async"
-            [title]="post.title"
-            [content]="post.body"
-            [postId]="post.id"
-            [userId]="post.userId"
-            [userName]="post.userName"
+            [post]="post"
             class="post">
   </app-post>
 </div>

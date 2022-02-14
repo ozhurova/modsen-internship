@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UserApiService } from 'src/app/core/api/user.api.service';
+import { IPost } from 'src/app/core/models/post.model';
 import { IUser } from 'src/app/core/models/user.model';
 
 @Component({
@@ -9,19 +10,16 @@ import { IUser } from 'src/app/core/models/user.model';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnChanges, OnDestroy {
-  @Input() title = '';
-  @Input() content = '';
-  @Input() postId: number | null = null;
   @Input() userName = '';
-  @Input() userId: number | null = null;
+  @Input() post: IPost | null = null;
   subscription: Subscription | null = null;
 
   constructor(private userApiService: UserApiService) {}
 
   ngOnChanges(): void {
-    if (this.userId) {
+    if (this.post?.userId) {
       this.subscription = this.userApiService
-        .getUserById(this.userId)
+        .getUserById(this.post.userId)
         .subscribe((res: IUser) => (this.userName = res.name));
     }
   }
