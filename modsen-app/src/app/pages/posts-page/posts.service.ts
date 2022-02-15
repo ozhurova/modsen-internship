@@ -9,9 +9,9 @@ export class PostsService {
 
   constructor(private postsApiService: PostsApiService) {}
 
-  init(): void {
+  init(page: number, amount: number): void {
     this.postsApiService
-      .getPosts()
+      .getPostsByPages(page, amount)
       .subscribe((posts: IPost[]) => this.posts$.next(posts));
   }
 }

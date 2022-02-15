@@ -14,4 +14,10 @@ export class PostsApiService {
   getPosts(): Observable<IPost[]> {
     return this.http.get<IPost[]>(`${environment.BASE_URL}/posts`);
   }
+
+  getPostsByPages(page: number, amount: number): Observable<IPost[]> {
+    return this.http.get<IPost[]>(
+      `${environment.BASE_URL}/posts?_page=${page}&_limit=${amount}`
+    );
+  }
 }
