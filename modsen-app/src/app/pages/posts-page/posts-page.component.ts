@@ -11,11 +11,11 @@ import { PostsService } from './posts.service';
 })
 export class PostsPageComponent implements OnInit, OnDestroy {
   posts: IPost[] = [];
-  isDataAvailable = false;
   subscription: Subscription | null = null;
   numberPage = 0;
   amountPosts = 10;
   statusPanding = false;
+  limit = false;
 
   constructor(public postsService: PostsService) {}
 
@@ -24,9 +24,9 @@ export class PostsPageComponent implements OnInit, OnDestroy {
     this.workWithPosts();
   }
 
-  @HostListener('window:scroll', [])
+  @HostListener('window:scroll')
   onScroll(): void {
-    if (!this.statusPanding && this.bottomReached() && this.numberPage < 10) {
+    if (!this.statusPanding && this.bottomReached() && !this.limit) {
       this.statusPanding = true;
       this.postsService.init(++this.numberPage, this.amountPosts);
     }
@@ -40,11 +40,11 @@ export class PostsPageComponent implements OnInit, OnDestroy {
 
   workWithPosts(): void {
     this.subscription = this.postsService.posts$.subscribe((posts: IPost[]) => {
-      if (posts !== []) {
-        this.posts = [...this.posts, ...posts];
-        this.isDataAvailable = true;
-        this.statusPanding = false;
+      if (posts.length < this.amountPosts && this.numberPage > 1) {
+        this.limit = true;
       }
+      this.posts = [...this.posts, ...posts];
+      this.statusPanding = false;
     });
   }
 

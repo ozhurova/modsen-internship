@@ -1,5 +1,4 @@
-<mat-spinner *ngIf="!isDataAvailable"></mat-spinner>
-<div class="wrapper" *ngIf="isDataAvailable">
+<div class="wrapper">
   <app-post *ngFor="let post of posts"
             [post]="post"
             class="post">
