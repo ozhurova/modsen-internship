@@ -6,7 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent {
-  cards = [
-    { title: 'Posts', imgLink: 'assets/img/post-album.png', link: '/posts' },
-  ];
+  cards = [{ imgLink: 'assets/img/post-album.png', link: '/posts' }];
 }

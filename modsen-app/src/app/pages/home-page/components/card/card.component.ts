@@ -9,11 +9,15 @@ import { ICard } from 'src/app/core/models/card.model';
 })
 export class CardComponent implements OnInit {
   @Input() card: ICard | null = null;
-  constructor(private translateService: TranslateService) {}
+  title = '';
+
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    if (this.card) {
-      this.card.title = this.translateService.instant('CARD.TITLE');
-    }
+    this.title = this.translate.instant('CARD.TITLE');
+
+    this.translate.onLangChange.subscribe(() => {
+      this.title = this.translate.instant('CARD.TITLE');
+    });
   }
 }
