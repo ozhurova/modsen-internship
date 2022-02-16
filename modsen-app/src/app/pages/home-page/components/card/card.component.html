@@ -1,13 +1,13 @@
 <mat-card class="card">
 
   <mat-card-header>
-    <mat-card-title>{{"CARD.TITLE" | translate}}</mat-card-title>
+    <mat-card-title>{{card?.title}}</mat-card-title>
   </mat-card-header>
 
-  <img mat-card-image class="card-img" src="assets/img/post-album.png" alt="">
+  <img mat-card-image class="card-img" [src]="card?.imgLink" alt="">
 
   <mat-card-actions class="btn">
-    <a mat-raised-button color="primary" class="mat-btn-primary" routerLink="/posts"
+    <a mat-raised-button color="primary" class="mat-btn-primary" [routerLink]="card?.link"
        routerLinkActive="active-link">{{"CARD.LINK" | translate}}
     </a>
   </mat-card-actions>

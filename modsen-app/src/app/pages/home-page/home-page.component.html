@@ -1,3 +1,5 @@
 <div class="wrapper">
-  <app-card class="card"></app-card>
+  <app-card *ngFor="let card of cards" class="card"
+            [card]="card"
+  ></app-card>
 </div>
