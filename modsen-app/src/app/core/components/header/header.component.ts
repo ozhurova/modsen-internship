@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 
 import { IUser } from '../../models/user.model';
 import { UserApiService } from '../../api/user.api.service';
@@ -12,7 +12,7 @@ import { UserService } from '../../services/user.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   currentUserName = '';
-  subscription: Subscription | null = null;
+  private unsubscribe$: Subject<boolean> = new Subject();
 
   constructor(
     private userService: UserService,
@@ -20,21 +20,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.subscription = this.userService.user$.subscribe(
-      (user: IUser | null) => (this.currentUserName = user?.name || '')
-    );
+    this.userService.user$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(
+        (user: IUser | null) => (this.currentUserName = user?.name || '')
+      );
   }
 
   logout(): void {
     this.userApiService
       .logout()
+      .pipe(takeUntil(this.unsubscribe$))
       .subscribe(() => this.userService.saveUser(null));
   }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-      this.subscription = null;
-    }
+    this.unsubscribe$.next(true);
+    this.unsubscribe$.complete();
   }
 }

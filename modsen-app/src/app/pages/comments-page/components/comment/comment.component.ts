@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IComment } from 'src/app/core/models/comment.model';
 
 @Component({
   selector: 'app-comment',
@@ -6,8 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent {
-  @Input() title = '';
-  @Input() email = '';
-  @Input() content = '';
+  @Input() comment: IComment | null = null;
   @Input() postId: number | null = null;
 }

@@ -1,10 +1,5 @@
 <div class="wrapper">
   <app-comment  class="comment" *ngFor="let comment of commentsService.comments$ | async"
-               [title]="comment.name"
-               [email] = "comment.email"
-               [content]="comment.body"
-               [postId]="comment.postId"
-
-               >
+               [comment]="comment">
   </app-comment>
 </div>

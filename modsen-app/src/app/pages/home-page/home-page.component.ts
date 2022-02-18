@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ICard } from 'src/app/core/models/card.model';
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent {
-  cards = [{ imgLink: 'assets/img/post-album.png', link: '/posts' }];
+  cards: ICard[] = [{ imgLink: 'assets/img/post-album.png', link: '/posts' }];
 }

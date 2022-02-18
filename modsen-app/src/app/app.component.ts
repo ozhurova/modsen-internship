@@ -12,7 +12,7 @@ import { UserService } from './core/services/user.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'modsen-app';
-  subscription: Subscription | null = null;
+  subscription$: Subscription | null = null;
 
   constructor(
     private uiService: UIService,
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.userService.user$.subscribe(
+    this.subscription$ = this.userService.user$.subscribe(
       (user: IUser | null) => {
         if (user === null) {
           this.router.navigate(['']);
@@ -33,9 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-      this.subscription = null;
-    }
+    this.subscription$?.unsubscribe();
+    this.subscription$ = null;
   }
 }

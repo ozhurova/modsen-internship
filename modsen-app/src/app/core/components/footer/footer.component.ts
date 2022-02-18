@@ -18,7 +18,7 @@ export class FooterComponent {
   selectedLang?: ELang;
 
   constructor(
-    public uiService: UIService,
+    private uiService: UIService,
     public translate: TranslateService
   ) {}
 

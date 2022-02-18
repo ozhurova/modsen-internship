@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { ICard } from 'src/app/core/models/card.model';
 
 @Component({
@@ -7,17 +8,22 @@ import { ICard } from 'src/app/core/models/card.model';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnDestroy {
   @Input() card: ICard | null = null;
   title = '';
+  private subscription$: Subscription | null = null;
 
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
     this.title = this.translate.instant('CARD.TITLE');
 
-    this.translate.onLangChange.subscribe(() => {
+    this.subscription$ = this.translate.onLangChange.subscribe(() => {
       this.title = this.translate.instant('CARD.TITLE');
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$?.unsubscribe();
   }
 }

@@ -1,0 +1,9 @@
+@import 'src/styles/colors';
+
+.mat-btn-primary {
+  box-shadow: 2px 2px 4px 0 $shadow-color;
+
+  &:hover {
+    background-color: $primary-900;
+  }
+}

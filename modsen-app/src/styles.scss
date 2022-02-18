@@ -16,19 +16,4 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: $primary-50;
-
-  .page-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .mat-btn-primary {
-    box-shadow: 2px 2px 4px 0 $shadow-color;
-
-    &:hover {
-      background-color: $primary-900;
-    }
-  }
 }

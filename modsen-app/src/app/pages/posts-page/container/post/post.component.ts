@@ -10,23 +10,21 @@ import { IUser } from 'src/app/core/models/user.model';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnChanges, OnDestroy {
-  @Input() userName = '';
   @Input() post: IPost | null = null;
-  subscription: Subscription | null = null;
+  private subscription$: Subscription | null = null;
+  userName = '';
 
   constructor(private userApiService: UserApiService) {}
 
   ngOnChanges(): void {
     if (this.post?.userId) {
-      this.subscription = this.userApiService
+      this.subscription$ = this.userApiService
         .getUserById(this.post.userId)
         .subscribe((res: IUser) => (this.userName = res.name));
     }
   }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription$?.unsubscribe();
   }
 }

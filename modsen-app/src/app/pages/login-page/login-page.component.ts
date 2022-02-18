@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UserApiService } from 'src/app/core/api/user.api.service';
 import { UserService } from 'src/app/core/services/user.service';
 
-import { IAuthUser, IUser } from 'src/app/core/models/user.model';
-import { filter } from 'rxjs';
+import { IUser } from 'src/app/core/models/user.model';
+import { IAuthUser } from './auth-user.model';
+
+import { filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnDestroy {
+  private subscription$: Subscription | null = null;
+
   constructor(
     private router: Router,
     private userApiService: UserApiService,
@@ -20,12 +24,16 @@ export class LoginPageComponent {
   ) {}
 
   login(authUser: IAuthUser): void {
-    this.userApiService
+    this.subscription$ = this.userApiService
       .login(authUser.email, authUser.password)
       .pipe(filter((user: IUser | null) => !!user))
       .subscribe((user: IUser | null) => {
         this.userService.saveUser(user as IUser);
         this.router.navigate(['home']);
       });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$?.unsubscribe();
   }
 }

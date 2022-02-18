@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IAuthUser } from 'src/app/core/models/user.model';
+import { IAuthUser } from '../../auth-user.model';
 
 @Component({
   selector: 'app-login-form',

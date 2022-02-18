@@ -6,8 +6,3 @@ export interface IUser {
   username: string;
   website: string;
 }
-
-export interface IAuthUser {
-  email: string;
-  password: string;
-}

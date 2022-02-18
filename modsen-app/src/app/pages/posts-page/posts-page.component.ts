@@ -11,11 +11,11 @@ import { PostsService } from './posts.service';
 })
 export class PostsPageComponent implements OnInit, OnDestroy {
   posts: IPost[] = [];
-  subscription: Subscription | null = null;
-  numberPage = 0;
-  amountPosts = 10;
-  statusPanding = false;
-  limit = false;
+  private subscription$: Subscription | null = null;
+  private numberPage = 0;
+  private amountPosts = 10;
+  private statusPanding = false;
+  private limit = false;
 
   constructor(public postsService: PostsService) {}
 
@@ -39,18 +39,18 @@ export class PostsPageComponent implements OnInit, OnDestroy {
   }
 
   workWithPosts(): void {
-    this.subscription = this.postsService.posts$.subscribe((posts: IPost[]) => {
-      if (posts.length < this.amountPosts && this.numberPage > 1) {
-        this.limit = true;
+    this.subscription$ = this.postsService.posts$.subscribe(
+      (posts: IPost[]) => {
+        if (posts.length < this.amountPosts && this.numberPage > 1) {
+          this.limit = true;
+        }
+        this.posts = [...this.posts, ...posts];
+        this.statusPanding = false;
       }
-      this.posts = [...this.posts, ...posts];
-      this.statusPanding = false;
-    });
+    );
   }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription$?.unsubscribe();
   }
 }
