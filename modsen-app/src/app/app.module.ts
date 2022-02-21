@@ -16,6 +16,12 @@ import { HomePageModule } from './pages/home-page/home-page.module';
 import { PostsPageModule } from './pages/posts-page/posts-page.module';
 import { CommentsPageModule } from './pages/comments-page/comments-page.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +45,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         deps: [HttpClient],
       },
     }),
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([AppEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
