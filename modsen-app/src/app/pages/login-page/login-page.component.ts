@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Inject, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UserApiService } from 'src/app/core/api/user.api.service';
@@ -8,6 +8,9 @@ import { IUser } from 'src/app/core/models/user.model';
 import { IAuthUser } from './auth-user.model';
 
 import { filter, Subscription } from 'rxjs';
+// import { USER_STORE_SERVICE, UserStoreService } from 'src/app/core/store/user/user.store.service';
+import { Store } from '@ngrx/store';
+import * as USER_ACTIONS from '../../core/store/user/user.actions'
 
 @Component({
   selector: 'app-login-page',
@@ -20,17 +23,23 @@ export class LoginPageComponent implements OnDestroy {
   constructor(
     private router: Router,
     private userApiService: UserApiService,
-    private userService: UserService
+    private userService: UserService,
+    private store$: Store
+    // @Inject(USER_STORE_SERVICE)
+    // private userStoreService: UserStoreService
   ) {}
 
   login(authUser: IAuthUser): void {
-    this.subscription$ = this.userApiService
-      .login(authUser.email, authUser.password)
-      .pipe(filter((user: IUser | null) => !!user))
-      .subscribe((user: IUser | null) => {
-        this.userService.saveUser(user as IUser);
-        this.router.navigate(['home']);
-      });
+    // this.userStoreService.login(authUser.email, authUser.password)
+    this.store$.dispatch(USER_ACTIONS.login(authUser))
+    
+    // this.subscription$ = this.userApiService
+    //   .login(authUser.email, authUser.password)
+    //   .pipe(filter((user: IUser | null) => !!user))
+    //   .subscribe((user: IUser | null) => {
+    //     this.userService.saveUser(user as IUser);
+    //     this.router.navigate(['home']);
+    //   });
   }
 
   ngOnDestroy(): void {

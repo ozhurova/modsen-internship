@@ -16,13 +16,12 @@ import { HomePageModule } from './pages/home-page/home-page.module';
 import { PostsPageModule } from './pages/posts-page/posts-page.module';
 import { CommentsPageModule } from './pages/comments-page/comments-page.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './core/store/user/user.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
-
+import { UserEffects } from './core/store/user/user.effects'
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -38,6 +37,9 @@ import { AppEffects } from './app.effects';
     FormsModule,
     ReactiveFormsModule,
     CommentsPageModule,
+    StoreModule.forRoot(userReducer),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([UserEffects]),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -45,11 +47,6 @@ import { AppEffects } from './app.effects';
         deps: [HttpClient],
       },
     }),
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([AppEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
