@@ -18,10 +18,11 @@ import { CommentsPageModule } from './pages/comments-page/comments-page.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
-import { userReducer } from './core/store/user/user.reducer';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { UserEffects } from './core/store/user/user.effects'
+import { UserEffects } from './core/store/user/user.effects';
+import { appReducers } from './core/store';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -37,8 +38,11 @@ import { UserEffects } from './core/store/user/user.effects'
     FormsModule,
     ReactiveFormsModule,
     CommentsPageModule,
-    StoreModule.forRoot(userReducer),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     EffectsModule.forRoot([UserEffects]),
     TranslateModule.forRoot({
       loader: {
