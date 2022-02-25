@@ -16,13 +16,9 @@ import { HomePageModule } from './pages/home-page/home-page.module';
 import { PostsPageModule } from './pages/posts-page/posts-page.module';
 import { CommentsPageModule } from './pages/comments-page/comments-page.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { environment } from '../environments/environment';
-import { StoreModule } from '@ngrx/store';
 
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
-import { UserEffects } from './core/store/user/user.effects';
-import { appReducers } from './core/store';
+import { AppStoreModule } from './core/store/app.store.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -38,12 +34,7 @@ import { appReducers } from './core/store';
     FormsModule,
     ReactiveFormsModule,
     CommentsPageModule,
-    StoreModule.forRoot(appReducers),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production,
-    }),
-    EffectsModule.forRoot([UserEffects]),
+    AppStoreModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -3,6 +3,8 @@ import { IUser } from '../../models/user.model';
 
 import * as USER_ACTIONS from './user.actions';
 
+export const userFeatureKey = 'USER';
+
 export interface IUserState {
   user: IUser | null;
 }

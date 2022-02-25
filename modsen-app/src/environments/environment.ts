@@ -2,11 +2,18 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 export const environment = {
   production: false,
   BASE_URL: 'https://jsonplaceholder.typicode.com',
   DEV: 'Volha Zhurava',
 };
+export const ROOT_MODULES = [
+  StoreDevtoolsModule.instrument({
+    maxAge: 25,
+  }),
+];
 
 /*
  * For easier debugging in development mode, you can import the following file
