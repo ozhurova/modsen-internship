@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 
 import { IUser } from '../../models/user.model';
@@ -10,22 +10,15 @@ import { UserService } from '../../services/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements  OnDestroy {
   currentUserName = '';
   private unsubscribe$: Subject<boolean> = new Subject();
+  @Input() user?: IUser | null;
 
   constructor(
     private userService: UserService,
     private userApiService: UserApiService
   ) {}
-
-  ngOnInit(): void {
-    this.userService.user$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(
-        (user: IUser | null) => (this.currentUserName = user?.name || '')
-      );
-  }
 
   logout(): void {
     this.userApiService

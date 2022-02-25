@@ -7,8 +7,8 @@
     </div>
   </a>
 
-  <div class="right-wrapper" *ngIf="currentUserName">
-    <span class="user-name">{{ 'HEADER.HELLO' | translate }}, {{currentUserName}}</span>
+  <div class="right-wrapper" *ngIf="user">
+    <span class="user-name">{{ 'HEADER.HELLO' | translate }}, {{user.name}}</span>
     <button mat-flat-button color="primary" (click)="logout()">{{ 'HEADER.LOG_OUT' |
       translate }}
     </button>

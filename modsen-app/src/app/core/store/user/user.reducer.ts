@@ -3,7 +3,7 @@ import { IUser } from '../../models/user.model';
 
 import * as USER_ACTIONS from './user.actions';
 
-export const userFeatureKey = 'USER';
+export const userFeatureKey = 'user';
 
 export interface IUserState {
   user: IUser | null;
@@ -12,6 +12,10 @@ export interface IUserState {
 export const initialUserState: IUserState = {
   user: null,
 };
+
+export interface IAppState {
+  user: IUserState;
+}
 
 export const userState = createReducer(
   initialUserState,

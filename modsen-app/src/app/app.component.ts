@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IUser } from './core/models/user.model';
 import { UIService } from './core/services/ui.service';
 import { UserService } from './core/services/user.service';
+import { IUserFacade, USER_FACADE } from './core/store/user/user.facade';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private uiService: UIService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    @Inject(USER_FACADE) public userFacade: IUserFacade
   ) {
     this.uiService.init();
   }

@@ -2,10 +2,10 @@ import { Injectable, InjectionToken } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { IUser } from '../../models/user.model.js';
+import { IUser } from '../../models/user.model';
 
 import * as USER_ACTIONS from './user.actions';
-import { IAppState } from './../index';
+import { IAppState } from './user.reducer';
 import { selectUser } from './user.selectors';
 
 export interface IUserFacade {
